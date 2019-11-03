@@ -42,9 +42,9 @@
     <option name="REQUEST_HISTORY">
       <list>
         <RestClientRequest>
-          <option name="httpMethod" value="PUT" />
+          <option name="httpMethod" value="GET" />
           <option name="urlBase" value="http://localhost:3000" />
-          <option name="urlPath" value="/users/5db5d5c62ff30f11489ddab1/agree" />
+          <option name="urlPath" value="/users" />
           <option name="headers">
             <list>
               <KeyValuePair>
@@ -67,9 +67,9 @@
           <option name="filesToSend" value="" />
         </RestClientRequest>
         <RestClientRequest>
-          <option name="httpMethod" value="GET" />
+          <option name="httpMethod" value="PUT" />
           <option name="urlBase" value="http://localhost:3000" />
-          <option name="urlPath" value="/users" />
+          <option name="urlPath" value="/users/5db5d5c62ff30f11489ddab1/agree" />
           <option name="headers">
             <list>
               <KeyValuePair>
