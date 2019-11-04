@@ -5,7 +5,7 @@ let router = express.Router();
 
 //let mongodbUri = 'mongodb+srv://barry:hobbit00@cluster0-58mmj.mongodb.net/agreeORdisagree?retryWrites=true&w=majority';
 mongoose.connect('mongodb://localhost:27017/agreeORdisagree');
-mongoose.connect(mongodbUri);
+//mongoose.connect(mongodbUri);
 let db = mongoose.connection;
 
 db.on('error', function (err) {
