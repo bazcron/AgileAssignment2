@@ -3,8 +3,8 @@ let statements = require('../models/statements');
 let express = require('express');
 let router = express.Router();
 
-let mongodbUri = 'mongodb+srv://barry:hobbit00@cluster0-58mmj.mongodb.net/agreeORdisagree?retryWrites=true&w=majority';
-//mongoose.connect('mongodb://localhost:27017/agreeORdisagree');
+//let mongodbUri = 'mongodb+srv://barry:hobbit00@cluster0-58mmj.mongodb.net/agreeORdisagree?retryWrites=true&w=majority';
+mongoose.connect('mongodb://localhost:27017/agreeORdisagree');
 mongoose.connect(mongodbUri);
 let db = mongoose.connection;
 
