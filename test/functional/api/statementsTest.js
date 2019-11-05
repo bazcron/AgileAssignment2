@@ -147,7 +147,38 @@ describe("statements", () => {
                 });
         });
     });
-
+    describe("PUT /statements/:id/agree", () => {
+        describe("when the id is valid", () => {
+            it("should return a message and the statement has the Agree value increased by 1", () => {
+                return request(server)
+                    .put(`/statements/${validID}/agree`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({
+                            message: "You have Agreed with this statement!"
+                        });
+                        expect(resp.body.data).to.have.property("agree", 1);
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/statements/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body[0]).to.have.property("agree", 1);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a 404 and a message for invalid statement id", () => {
+                return request(server)
+                    .put("/statements/110000000/agree")
+                    .expect(200);
+            });
+        });
+    });
 
 
 });
