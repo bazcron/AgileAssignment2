@@ -63,5 +63,36 @@ describe("statements", () => {
         }
     });
 
-
+    describe("GET /statements", () => {
+        it("should GET all the statements", done => {
+            request(server)
+                .get("/statements")
+                .set("Accept", "application/json")
+                .expect("Content-Type", /json/)
+                .expect(200)
+                .end((err, res) => {
+                    try {
+                        expect(res.body).to.be.a("array");
+                        expect(res.body.length).to.equal(2);
+                        let result = _.map(res.body, statement => {
+                            return {
+                                statement: statement.statement,
+                                agree: statement.agree
+                            };
+                        });
+                        expect(result).to.deep.include({
+                            statement : "There is a God",
+                            agree : 0
+                        });
+                        expect(result).to.deep.include({
+                            statement : "Prison should be a punishment",
+                            agree : 0
+                        });
+                        done(err);
+                    } catch (e) {
+                        done(e);
+                    }
+                });
+        });
+    });
 });

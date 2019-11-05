@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fead50cf-6762-404e-8ace-fa2aec1b26f0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mocharc.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.mocharc.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/database/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/test/database/mongod.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/functional/api/usersTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/usersTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/functional/api/statementsTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/statementsTest.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
