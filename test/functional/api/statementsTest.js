@@ -95,4 +95,35 @@ describe("statements", () => {
                 });
         });
     });
+
+    describe("GET /statements/:id", () => {
+        describe("when the id is valid", () => {
+            it("should return the matching statement", done => {
+                request(server)
+                    .get(`/statements/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body[0]).to.have.property("statement", "There is a God");
+                        expect(res.body[0]).to.have.property("agree", 0);
+                        done(err);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return the NOT found message", done => {
+                request(server)
+                    .get("/statements/999")
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.message).equals("Statement NOT Found!");
+                        done(err);
+                    });
+            });
+        });
+    });
+
 });
