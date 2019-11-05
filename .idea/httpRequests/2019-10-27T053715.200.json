@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "5db5cfc405eaf510f4317adc",
+    "name": "Mary",
+    "email": "maryc@yahoo.co.uk",
+    "password": "mary",
+    "agree": 3,
+    "disagree": 4,
+    "__v": 0
+  },
+  {
+    "_id": "5db5d5c62ff30f11489ddab1",
+    "name": "barry",
+    "email": "barry@yahoo.co.uk",
+    "password": "barry",
+    "agree": 0,
+    "disagree": 0,
+    "__v": 0
+  }
+]

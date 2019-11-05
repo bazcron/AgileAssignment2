@@ -1,0 +1,10 @@
+{
+  "message": "Statement Successfully Added!",
+  "data": {
+    "_id": "5db5d452ec83d5196cca6e43",
+    "statement": "Road speedare a waste of time",
+    "agree": 0,
+    "disagree": 0,
+    "__v": 0
+  }
+}

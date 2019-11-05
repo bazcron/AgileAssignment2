@@ -1,0 +1,10 @@
+{
+  "message": "You have Disagreed with this statement!",
+  "data": {
+    "_id": "5db5c28af0d2200e68c2313b",
+    "statement": "Speeding Kills you quickly",
+    "agree": 1,
+    "disagree": 3,
+    "__v": 0
+  }
+}

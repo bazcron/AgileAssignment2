@@ -1,0 +1,12 @@
+{
+  "message": "You have Agreed with this statement. Agreed has been increased by 1!",
+  "data": {
+    "_id": "5db5d5c62ff30f11489ddab1",
+    "name": "barry",
+    "email": "barry@yahoo.co.uk",
+    "password": "barry",
+    "agree": 1,
+    "disagree": 0,
+    "__v": 0
+  }
+}
