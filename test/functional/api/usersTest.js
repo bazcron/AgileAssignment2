@@ -106,7 +106,7 @@ describe("Users", () => {
         });
     });
 
-   /* describe("GET /users/:id", () => {
+    describe("GET /users/:id", () => {
         describe("when the id is valid", () => {
             it("should return the matching user", done => {
                 request(server)
@@ -121,5 +121,81 @@ describe("Users", () => {
                     });
             });
         });
-    });*/
+        describe("when the id is invalid", () => {
+            it("should return the NOT found message", done => {
+                request(server)
+                    .get("/users/999")
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body.message).equals("User NOT Found!! Please Try Again");
+                        done(err);
+                    });
+            });
+        });
+    });
+
+    describe("POST /users", () => {
+        it("should return confirmation message and update datastore", () => {
+            const user = {
+                name: "barry",
+                email: "bazcron@yahoo.co.uk",
+                password: "barry",
+                agree: 0,
+                disagree: 0
+            };
+            return request(server)
+                .post("/users")
+                .send(user)
+                .expect(200)
+                .then(res => {
+                    expect(res.body.message).equals("User Added Successfully!");
+                    validID = res.body.data._id;
+                });
+        });
+        after(() => {
+            return request(server)
+                .get(`/users/${validID}`)
+                .expect(200)
+                .then(res => {
+                    expect(res.body[0]).to.have.property("name", "barry");
+                    expect(res.body[0]).to.have.property("email", "bazcron@yahoo.co.uk");
+                });
+        });
+    });
+
+    describe("PUT /users/:id/agree", () => {
+        describe("when the id is valid", () => {
+            it("should return a message and the user has the Agree value increased by 1", () => {
+                return request(server)
+                    .put(`/users/${validID}/agree`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({
+                            message: "You have Agreed with this statement. Agreed has been increased by 1!"
+                        });
+                        expect(resp.body.data).to.have.property("agree", 1);
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/users/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body[0]).to.have.property("agree", 1);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a 404 and a message for invalid user id", () => {
+                return request(server)
+                    .put("/users/22323232000000000000/agree")
+                    .expect(200);
+            });
+        });
+    });
+
 });

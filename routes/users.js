@@ -39,7 +39,7 @@ router.addUser = (req, res) => {
     if (err)
       res.json({ message: 'Unable to Add User. Sorry! Please try again.', errmsg : err } );
     else
-      res.json({ message: 'User Added Successfully!', data: users });
+      res.json({ message: 'User Added Successfully!', data: user });
   });
 }
 
