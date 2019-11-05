@@ -106,5 +106,20 @@ describe("Users", () => {
         });
     });
 
-
+   /* describe("GET /users/:id", () => {
+        describe("when the id is valid", () => {
+            it("should return the matching user", done => {
+                request(server)
+                    .get(`/users/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .end((err, res) => {
+                        expect(res.body[0]).to.have.property("name", "barry");
+                        expect(res.body[0]).to.have.property("email", "bazcron@yahoo.co.uk");
+                        done(err);
+                    });
+            });
+        });
+    });*/
 });
