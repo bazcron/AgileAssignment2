@@ -84,10 +84,6 @@ describe("statements", () => {
                             statement : "There is a God",
                             agree : 0
                         });
-                        expect(result).to.deep.include({
-                            statement : "Prison should be a punishment",
-                            agree : 0
-                        });
                         done(err);
                     } catch (e) {
                         done(e);
@@ -125,5 +121,33 @@ describe("statements", () => {
             });
         });
     });
+    describe("POST /statements", () => {
+        it("should return confirmation message and update datastore", () => {
+            const statement = {
+                statement :"There is a God",
+                agree:0,
+                disagree:0
+            };
+            return request(server)
+                .post("/statements")
+                .send(statement)
+                .expect(200)
+                .then(res => {
+                    expect(res.body.message).equals("Statement Successfully Added!");
+                    validID = res.body.data._id;
+                });
+        });
+        after(() => {
+            return request(server)
+                .get(`/statements/${validID}`)
+                .expect(200)
+                .then(res => {
+                    expect(res.body[0]).to.have.property("statement", "There is a God");
+                    expect(res.body[0]).to.have.property("agree", 0);
+                });
+        });
+    });
+
+
 
 });
