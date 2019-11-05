@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fead50cf-6762-404e-8ace-fa2aec1b26f0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/database/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/test/database/mongod.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/functional/api/statementsTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/functional/api/statementsTest.js" afterDir="false" />
     </list>

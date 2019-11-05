@@ -179,6 +179,38 @@ describe("statements", () => {
             });
         });
     });
+    describe("PUT /statements/:id/disagree", () => {
+        describe("when the id is valid", () => {
+            it("should return a message that you Disagreed with the statement", () => {
+                return request(server)
+                    .put(`/statements/${validID}/disagree`)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body).to.include({
+                            message: "You have Disagreed with this statement!"
+                        });
+                        expect(resp.body.data).to.have.property("disagree", 1);
+                    });
+            });
+            after(() => {
+                return request(server)
+                    .get(`/statements/${validID}`)
+                    .set("Accept", "application/json")
+                    .expect("Content-Type", /json/)
+                    .expect(200)
+                    .then(resp => {
+                        expect(resp.body[0]).to.have.property("disagree", 1);
+                    });
+            });
+        });
+        describe("when the id is invalid", () => {
+            it("should return a 404 and a message for invalid statement id", () => {
+                return request(server)
+                    .put("/statements/110000000/disagree")
+                    .expect(200);
+            });
+        });
+    });
 
 
 });
