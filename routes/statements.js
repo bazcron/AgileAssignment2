@@ -1,20 +1,7 @@
-let mongoose = require('mongoose');
 let statements = require('../models/statements');
 let express = require('express');
 let router = express.Router();
 
-//let mongodbUri = 'mongodb+srv://barry:hobbit00@cluster0-58mmj.mongodb.net/agreeORdisagree?retryWrites=true&w=majority';
-mongoose.connect('mongodb://localhost:27017/agreeORdisagree');
-//mongoose.connect(mongodbUri);
-let db = mongoose.connection;
-
-db.on('error', function (err) {
-    console.log('Unable to Connect to [ ' + db.name + ' ]', err);
-});
-
-db.once('open', function () {
-    console.log('Successfully Connected to [ ' + db.name + ' ]');
-});
 /*router.findAll = (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify(statements,null,5));
@@ -22,7 +9,7 @@ db.once('open', function () {
     res.json(statements);
 }*/
 
-router.findAll = (req, res) => {
+/*router.findAll = (req, res) => {
     // Return a JSON representation of our list
     res.setHeader('Content-Type', 'application/json');
 
@@ -32,7 +19,21 @@ router.findAll = (req, res) => {
 
         res.send(JSON.stringify(statements,null,5));
     });
+}*/
+
+router.findAll = function(req, res) {
+
+    // Use the statements model to find all statements
+    statements.find(function(err, statement) {
+        if (err)
+            res.send(err);
+        else {
+            // console.log(statements)
+            res.json(statement);
+        }
+    });
 }
+
 
 function getByValue(array, id) {
     let result = array.filter(function (obj) {return obj.id == id;});
