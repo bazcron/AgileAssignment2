@@ -1,3 +1,4 @@
+//import chai from 'chai';
 const chai = require("chai");
 const expect = chai.expect;
 const request = require("supertest");
@@ -20,7 +21,7 @@ describe("statements", () => {
                     dbName: "statementsdb" // by default generate random dbName
                 }
             });
-            // Async Trick - this ensures the database is created before 
+            // Async Trick - this ensures the database is created before
             // we try to connect to it or start the server
             await mongod.getConnectionString();
 

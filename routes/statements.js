@@ -1,4 +1,7 @@
+//import statements from "../models/statements"
 let statements = require('../models/statements');
+//import express from "express"
+
 let express = require('express');
 let router = express.Router();
 
